@@ -1,95 +1,142 @@
+---
 name: "🐞 Bug report"
-description: "Report an inssue"
-labels: ["bug", "needs-triage"]
-body: 
-  - attributes: 
+description: "Report an issue with crDroid Official Blossom"
+title: "[BUG] "
+labels:
+  - bug
+  - needs-triage
+
+body:
+  - type: markdown
+    attributes:
       value: |
-            This issue_tracker for crdroid official blossom rom
-          *Do note that unofficial versions will not get supported since we can not check device specific source.*
-    type: markdown
-  - attributes: 
+        ## 🐞 crDroid Official Blossom Issue Tracker
+
+        This issue tracker is exclusively for **crDroid Official Blossom ROM**.
+
+        **Note:** Unofficial builds are NOT supported because we cannot verify their device-specific source code.
+
+  - type: dropdown
+    id: issue_type
+    attributes:
       label: Issue type
-      options: 
-        - "User interface"
-        - "Feature not working as intended"
-        - "Source code related"
-        - "Other"
-    type: dropdown
-    validations: 
+      options:
+        - User interface
+        - Feature not working as intended
+        - Source code related
+        - Other
+    validations:
       required: true
-  - attributes: 
-      description: "Device should be listed as **Device (codename)**"
+
+  - type: textarea
+    id: device
+    attributes:
       label: Device
-    type: textarea
-    validations: 
+      description: "Specify your device as Device (codename)."
+      placeholder: "Xiaomi Redmi 9A (dandelion)"
+    validations:
       required: true
-  - attributes: 
-      description: "*Only current still updated source code is listed*"
-      label: "crDroid version"
-      options: 
-        - "crDroid 13"
-    type: dropdown
-    validations: 
+
+  - type: dropdown
+    id: rom_version
+    attributes:
+      label: crDroid version
+      description: "Only currently supported source versions are listed."
+      options:
+        - crDroid 13
+    validations:
       required: true
-  - attributes: 
-      description: "Exact crDroid version **Ex: 12.5/2026-01-02**"
+
+  - type: input
+    id: build_version
+    attributes:
       label: Exact version / Build date
-    type: textarea
-    validations: 
+      description: "Provide the exact ROM version and build date."
+      placeholder: "Example: 13.0 / 2026-11-01"
+    validations:
       required: true
-  - attributes: 
-      description: "Simple description of the issue"
-      label: "Bug description"
-    type: textarea
-    validations: 
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: Bug description
+      description: "Provide a clear and simple description of the issue."
+      placeholder: "Describe what is happening..."
+    validations:
       required: true
-  - attributes: 
-      description: "Steps to reproduce the issue"
-      label: "Steps to reproduce"
-      placeholder: "Step 1. Go to crDroid settings. Step 2. ..."
-    type: textarea
-    validations: 
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to reproduce
+      description: "Explain how to reproduce the issue."
+      placeholder: |
+        1. Go to Settings.
+        2. Open the relevant option.
+        3. Perform the action.
+        4. Observe the issue.
+    validations:
       required: true
-  - attributes: 
-      description: "Please copy and paste any relevant log output.  
-        This will be automatically formatted into code, so no need for backticks."
-      label: "Relevant log (logcat/build log)"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs (logcat / dmesg / build log)
+      description: |
+        Provide logs related to the reported issue.
+
+        - Logcat for framework and application issues.
+        - dmesg or kernel logs for kernel and hardware issues.
+        - Build logs for compilation issues.
+
+        Please provide complete relevant logs whenever possible.
+        Do not provide unrelated logs.
       render: shell
-    type: textarea
-    validations: 
+    validations:
       required: true
-  - attributes: 
-      description: "Add screenshots or videos that show the bug here."
-      label: "Screenshots or videos"
-      placeholder: "Drag and drop the screenshots/videos into this box."
-    type: textarea
-    validations: 
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or videos
+      description: "Attach screenshots or videos demonstrating the issue."
+      placeholder: "Drag and drop screenshots/videos here."
+    validations:
       required: false
-  - attributes: 
-      description: "If applicable, add a possible solution."
-      label: Solution
-    type: textarea
-    validations: 
+
+  - type: textarea
+    id: possible_solution
+    attributes:
+      label: Possible solution
+      description: "If you know the possible cause or have a suggested fix, mention it here."
+    validations:
       required: false
-  - attributes: 
-      description: "Add additional context here."
-      label: "Additional context"
-    type: textarea
-    validations: 
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: "Provide any additional information that may help investigate the issue."
+    validations:
       required: false
-  - attributes: 
-      description: "Your issue will be closed if you haven't done these steps."
-      label: Acknowledgements
-      options: 
-        - label: "I've checked device is officially supported and that no support is provided for unofficial devices (for device specific reports and not source related)."
-          required: false
-        - label: "I'm running latest version available on crdroid.net for this device and that the device is still maintainer supported (not flagged unsupported on download page)"
-          required: true
-        - label: "I have searched the existing issues and this is a new and no duplicate or related to another open issue."
-          required: true
-        - label: "I have written a short but informative title."
-          required: true
-        - label: "I filled out all of the requested information in this issue properly and understand that not doing so will automatically result in closing of ticket."
-          required: true
+
+  - type: checkboxes
     id: acknowledgements
-    type: checkboxes
+    attributes:
+      label: Acknowledgements
+      description: "Your issue may be closed if you do not meet these requirements."
+      options:
+        - label: "I understand that unofficial builds are not supported for device-specific issues."
+          required: true
+
+        - label: "I am running the latest available officially supported build for my device."
+          required: true
+
+        - label: "I have searched existing issues and confirmed that this is not a duplicate."
+          required: true
+
+        - label: "I have written a short and informative issue title."
+          required: true
+
+        - label: "I have provided all requested information and relevant logs."
+          required: true
