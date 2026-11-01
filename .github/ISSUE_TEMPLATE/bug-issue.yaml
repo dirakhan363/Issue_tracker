@@ -5,6 +5,9 @@ title: "[BUG] "
 labels:
   - bug
   - needs-triage
+  - need-fix
+  - solved
+  - need-info
 
 body:
   - type: markdown
@@ -24,6 +27,7 @@ body:
         - User interface
         - Feature not working as intended
         - Source code related
+        - kernel
         - Other
     validations:
       required: true
