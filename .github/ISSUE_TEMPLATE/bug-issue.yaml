@@ -4,10 +4,7 @@ labels: ["bug", "needs-triage"]
 body: 
   - attributes: 
       value: |
-          # crDroid bug report
-          
-          Important to note that your issue may have already been reported before. 
-          Please check for existing issues [here](https://github.com/crdroidandroid/issue_tracker/issues/labels/bug).  
+            This issue_tracker for crdroid official blossom rom
           *Do note that unofficial versions will not get supported since we can not check device specific source.*
     type: markdown
   - attributes: 
@@ -30,7 +27,6 @@ body:
       description: "*Only current still updated source code is listed*"
       label: "crDroid version"
       options: 
-        - "crDroid 12"
         - "crDroid 13"
     type: dropdown
     validations: 
